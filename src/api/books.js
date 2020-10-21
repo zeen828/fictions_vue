@@ -24,24 +24,26 @@ export default {
             free,
             money,
             payment,
-          }
+          },
         }
       }`
     }
     return Api().post('/graphql', data)
   },
   // 書籍ID多筆查詢書籍(範例:"70884,46805")
-  byBookIds (bookIds = '') {
+  byBookIds (bookIds = '', nature = 0) {
     var data = {
       query: `{
-        books(ids: "${bookIds}") {
+        books(ids: "${bookIds}", nature: ${nature}) {
           bookId:id,
           name,
           description,
-          typeId:tid,
+          typeId:tid,D
           cover,
+          cover_h,
           tags,
           author,
+          nature,
           click_w,
           click_m,
           click_s,
@@ -51,10 +53,10 @@ export default {
     return Api().post('/graphql', data)
   },
   // 分類ID查詢書籍
-  byTypeId (typeId = '', page = 1) {
+  byTypeId (typeId = '', nature = 0, page = 1) {
     var data = {
       query: `{
-        books(booktypeId: ${typeId}, page: ${page}, limit: 10) {
+        books(booktypeId: ${typeId}, nature: ${nature}, page: ${page}, limit: 10) {
           bookId:id,
           name,
           description,
@@ -62,6 +64,7 @@ export default {
           cover,
           tags,
           author,
+          nature,
           click_w,
           click_m,
           click_s,
@@ -71,10 +74,10 @@ export default {
     return Api().post('/graphql', data)
   },
   // 關鍵字查詢書籍
-  byKeyword (Keyword = '', page = 1) {
+  byKeyword (Keyword = '', nature = 0, page = 1) {
     var data = {
       query: `{
-        books(keyword: "${Keyword}", page: ${page}, limit: 10) {
+        books(keyword: "${Keyword}", nature: ${nature}, page: ${page}, limit: 10) {
           bookId:id,
           name,
           description,
@@ -82,6 +85,7 @@ export default {
           cover,
           tags,
           author,
+          nature,
           click_w,
           click_m,
           click_s,
@@ -91,10 +95,10 @@ export default {
     return Api().post('/graphql', data)
   },
   // 取書籍清單
-  books (page = 1) {
+  books (nature = 0, page = 1) {
     var data = {
       query: `{
-        books(page: ${page}, limit: 10) {
+        books(nature: ${nature}, page: ${page}, limit: 10) {
           bookId:id,
           name,
           description,
@@ -102,6 +106,7 @@ export default {
           cover,
           tags,
           author,
+          nature,
           click_w,
           click_m,
           click_s,

@@ -76,7 +76,7 @@ export default {
     callClassBooks () {
       var that = this
       // console.log('callBooksNew取書籍資料')
-      ajaxBooks.byTypeId(0, that.page).then(function (result) {
+      ajaxBooks.byTypeId(0, 0, that.page).then(function (result) {
         // console.log('POOO書籍資料', result)
         // data addend
         if (result.status === 200 && result.request.readyState === 4) {

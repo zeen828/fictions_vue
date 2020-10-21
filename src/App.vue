@@ -68,7 +68,7 @@ export default {
     },
     version () {
       // 版本
-      window.localStorage.setItem('version', 'V1.0.13')
+      window.localStorage.setItem('version', 'V1.0.14')
     },
     isApp () {
       // isApp

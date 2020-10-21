@@ -104,6 +104,7 @@ npm run lint
 ```
 IP：8.210.90.180
 前端：dev.numyue.cn:930
+君達亂小前端：47.242.161.12:930
 API：dev.numyue.cn:931
 後台：dev.numyue.cn:932
 APK：dev.numyue.cn:933

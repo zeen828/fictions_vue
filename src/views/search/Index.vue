@@ -61,7 +61,7 @@ export default {
     },
     callBooks () {
       var that = this
-      ajaxBooks.byKeyword(that.keyword, that.page).then(function (result) {
+      ajaxBooks.byKeyword(that.keyword, 0, that.page).then(function (result) {
         if (result.status === 200 && result.request.readyState === 4) {
           const apiData = result.data.data.books
           if (apiData !== null) {
